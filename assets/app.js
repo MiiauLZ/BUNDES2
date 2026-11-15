@@ -226,7 +226,7 @@ function getGroupScorers() {
   const unique=ungrouped;
   return arr.filter(x=>unique||norm(x.grupo)===norm(state.group)).sort((a,b)=>b.goles-a.goles||a.jugador.localeCompare(b.jugador,'es'));
 }
-function getJourneys() { return [...new Set(getGroupMatches().map(m=>m.jornada))].sort((a,b)=>a-b); }
+function getJourneys() { return [...new Set(getGroupMatches().map(m=>m.jornada))].filter(j=>Number(j)!==10).sort((a,b)=>a-b); }
 function updateJourneys(prefer) {
   const journeys=getJourneys(),gm=getGroupMatches();
   const recommended=journeys.find(j=>gm.some(m=>m.jornada===j&&!played(m)))??journeys.at(-1);
