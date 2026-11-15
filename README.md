@@ -29,6 +29,6 @@ Modern Web Guidance se puede consultar mediante sus archivos locales; su CLI req
 
 15 pruebas aprobadas. No se ha desplegado esta version. La revision visual en navegador y dispositivos sigue pendiente; no confundir las pruebas simuladas con una certificacion de accesibilidad o rendimiento.
 
-## Copia en GitHub
+## GitHub Pages
 
-La entrega inicial en GitHub contiene BUNDES2-source.zip (296 archivos con sus rutas) y la documentacion visible. Extrae el ZIP para obtener index.html, assets, tests y las integraciones. El repositorio no sirve el portal directamente desde esta entrega comprimida. La conexion de GitHub no tenia acceso al repositorio privado y el entorno bloqueo el commit local; por ello se subio mediante el navegador. No se publico la pagina web.
+El sitio se publica desde la rama main y la carpeta raiz. index.html es la entrada; assets contiene los estilos y scripts. Los archivos fuente estan descomprimidos y se pueden revisar directamente en GitHub.
