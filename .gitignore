@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.zip
+*.tmp
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/cache/
+.agents/skills/**/scripts/bin/
+.agents/skills/**/node_modules/
+.DS_Store
+Thumbs.db

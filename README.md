@@ -27,7 +27,7 @@ Modern Web Guidance se puede consultar mediante sus archivos locales; su CLI req
 
 ## Estado
 
-15 pruebas aprobadas. No se ha desplegado esta version. La revision visual en navegador y dispositivos sigue pendiente; no confundir las pruebas simuladas con una certificacion de accesibilidad o rendimiento.
+15 pruebas aprobadas. Sitio publicado en https://miiaulz.github.io/BUNDES2/. La revision visual en navegador y dispositivos sigue pendiente; no confundir las pruebas simuladas con una certificacion de accesibilidad o rendimiento.
 
 ## GitHub Pages
 
