@@ -1,0 +1,227 @@
+/* ============================================================
+   Acabados de experiencia móvil · 2026-10-19
+   Sombras de controles agrupadas, medallas del podio y tabla completa.
+   ============================================================ */
+
+/* Centro de partidos: un único relieve en la bandeja, no en cada botón. */
+#league-view .match-controls,
+#league-view .journey-pills,
+#league-view .match-status-chips {
+  background:var(--neo-base);
+  border:1px solid var(--line);
+  border-radius:15px;
+  box-shadow:var(--neo-deep-sm);
+}
+#league-view .match-controls {
+  display:inline-flex;
+  align-items:stretch;
+  gap:0;
+  flex-wrap:nowrap;
+  padding:4px;
+  flex-shrink:0;
+  margin-left:auto;
+}
+#league-view .match-controls .round-btn {
+  background:transparent;
+  border:0;
+  border-radius:10px;
+  box-shadow:none !important;
+  min-width:44px;
+  width:44px;
+  min-height:44px;
+  height:44px;
+  padding:0;
+  transition:transform .18s ease, background-color .2s ease, color .2s ease, opacity .2s ease;
+  transform-origin:center;
+}
+#league-view .match-controls .round-btn:not(:disabled):hover {background:var(--surface-hover);box-shadow:none !important;transform:translateY(-1px);}
+#league-view .match-controls .round-btn:not(:disabled):active {background:var(--surface-hover);box-shadow:none !important;transform:scale(.94);}
+#league-view .match-controls .round-btn:focus-visible {outline:2px solid var(--wine);outline-offset:-3px;}
+#league-view .journey-pills,
+#league-view .match-status-chips {
+  display:flex;
+  gap:3px;
+  padding:5px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  scroll-snap-type:none;
+}
+#league-view .journey-pills::-webkit-scrollbar,
+#league-view .match-status-chips::-webkit-scrollbar {display:none;}
+#league-view .journey-pills {margin:0 0 13px;}
+#league-view .match-status-chips {margin:0 0 20px;}
+#league-view .journey-pill,
+#league-view .match-status-chip {
+  flex:0 0 auto;
+  min-width:44px;
+  min-height:44px;
+  border:0;
+  background:transparent;
+  box-shadow:none !important;
+  border-radius:10px;
+  padding:9px 13px;
+  scroll-snap-align:start;
+  color:var(--ink-soft);
+  transition:transform .18s ease, background-color .2s ease, color .2s ease;
+  transform-origin:center;
+}
+#league-view .journey-pill:is(:hover,:focus-visible):not(.active),
+#league-view .match-status-chip:is(:hover,:focus-visible):not(.is-current){background:var(--surface-hover);transform:translateY(-1px);}
+#league-view .journey-pill.active,
+#league-view .match-status-chip.is-current {
+  background:var(--wine);
+  color:#fff;
+  border:0;
+  box-shadow:none !important;
+  font-weight:800;
+}
+#league-view .journey-pill:active,
+#league-view .match-status-chip:active{transform:scale(.96);}
+#league-view .journey-pill:focus-visible,
+#league-view .match-status-chip:focus-visible{outline:2px solid var(--wine);outline-offset:-2px;}
+
+/* Microinteracciones de estado, sin desplazar la fila ni crear sombras individuales. */
+@keyframes bpFilterSelect {
+  0%   {transform:scale(.96);filter:brightness(1.12)}
+  56%  {transform:scale(1.035);filter:brightness(1.04)}
+  100% {transform:scale(1);filter:brightness(1)}
+}
+#league-view .journey-pill.active,
+#league-view .match-status-chip.is-current {
+  animation:bpFilterSelect .32s cubic-bezier(.2,.75,.25,1) both;
+}
+#league-view .match-controls .round-btn,
+#league-view .journey-pill,
+#league-view .match-status-chip {
+  -webkit-tap-highlight-color:transparent;
+  will-change:auto;
+}
+#league-view .match-status-chip:not(.is-current):active,
+#league-view .journey-pill:not(.active):active {
+  transform:scale(.94);
+  background:var(--surface-hover);
+}
+@media(hover:hover) and (pointer:fine){
+  #league-view .match-status-chip:not(.is-current):hover,
+  #league-view .journey-pill:not(.active):hover {
+    transform:translateY(-1px);
+  }
+}
+
+
+/* Goleadores: medallas más nítidas, limpias y sutiles. */
+#league-view .podium-list .podium-item {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.65);
+  background:linear-gradient(145deg, rgba(255,255,255,.98), rgba(245,247,251,.94));
+  box-shadow:
+    -7px -7px 14px rgba(255,255,255,.92),
+    8px 8px 16px rgba(175,183,198,.18),
+    inset 1px 1px 0 rgba(255,255,255,.92),
+    inset -1px -1px 0 rgba(181,191,208,.16);
+}
+#league-view .podium-list .podium-item::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 38%),
+    linear-gradient(135deg, transparent 0 42%, rgba(255,255,255,.28) 58%, transparent 76%);
+}
+#league-view .podium-list .podium-item::after {
+  content:"";
+  position:absolute;
+  inset:auto 16px 0 16px;
+  height:4px;
+  border-radius:999px;
+  opacity:.95;
+  background:linear-gradient(90deg, transparent 0%, var(--medal-accent) 18%, var(--medal-accent-soft) 50%, var(--medal-accent) 82%, transparent 100%);
+}
+#league-view .podium-list .podium-item:nth-child(1) {
+  --medal-accent:#cda43a;
+  --medal-accent-soft:#f0d98d;
+  background:
+    linear-gradient(145deg, rgba(255,250,238,.98), rgba(248,239,210,.96));
+  border-color:rgba(205,164,58,.24);
+  color:#4f3c12;
+}
+#league-view .podium-list .podium-item:nth-child(2) {
+  --medal-accent:#98a5b9;
+  --medal-accent-soft:#dde3ec;
+  background:
+    linear-gradient(145deg, rgba(250,252,255,.98), rgba(232,237,245,.96));
+  border-color:rgba(152,165,185,.24);
+  color:#344255;
+}
+#league-view .podium-list .podium-item:nth-child(3) {
+  --medal-accent:#b7866d;
+  --medal-accent-soft:#e6c1b0;
+  background:
+    linear-gradient(145deg, rgba(255,248,244,.98), rgba(243,224,214,.96));
+  border-color:rgba(183,134,109,.24);
+  color:#5a3d31;
+}
+#league-view .podium-list .podium-item :is(small,strong,p,em),
+#league-view .podium-list .podium-item em span {color:inherit !important;}
+#league-view .podium-list .podium-item .podium-kicker,
+#league-view .podium-list .podium-item small {font-weight:850;letter-spacing:.03em;opacity:.86;}
+#league-view .podium-list .podium-item strong {text-shadow:0 1px 0 rgba(255,255,255,.35);}
+#league-view .podium-list .podium-item p {opacity:.8;}
+#league-view .podium-list .podium-item .podium-goals,
+#league-view .podium-list .podium-item em{font-variant-numeric:tabular-nums;opacity:.96;}
+@media(prefers-color-scheme:dark){
+  html[data-theme="dark"] #league-view .podium-list .podium-item{
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 22px rgba(0,0,0,.18);
+  }
+}
+
+/* Tabla: ninguna celda de Últimos 5 se recorta en el extremo derecho. */
+#league-view .table-scroll {width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-gutter:stable;scroll-padding-right:16px;}
+#league-view .table-scroll table {width:max-content !important;min-width:100% !important;table-layout:auto !important;border-spacing:0;border-collapse:separate;}
+#league-view .table-scroll :is(th,td):last-child {box-sizing:border-box;min-width:188px;width:188px;padding-inline:18px;white-space:nowrap;text-align:center;}
+#league-view .table-scroll .form-dots{display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;width:max-content;min-width:0;margin-inline:auto;}
+#league-view .table-scroll .form-dot{flex:0 0 23px;}
+#league-view .table-scroll thead th:last-child{border-top-right-radius:12px;}
+#league-view .table-scroll tbody tr:last-child td:last-child{border-bottom-right-radius:12px;}
+#league-view .table-scroll tbody tr:last-child td:first-child{border-bottom-left-radius:12px;}
+#league-view .table-scroll :is(th,td):nth-child(2){min-width:183px;}
+#league-view .table-scroll thead th{border-bottom:1px solid var(--line);}
+#league-view .table-scroll td{border-top:1px solid var(--line);}
+@media(max-width:760px){
+  #league-view .match-controls{gap:0;}
+  #league-view .table-scroll :is(th,td):first-child{
+    left:0;width:50px;min-width:50px;max-width:50px;padding-inline:5px;
+  }
+  #league-view .table-scroll :is(th.sticky,td.sticky){
+    left:50px;width:152px;min-width:152px;max-width:152px;padding-inline:8px;
+  }
+  #league-view .table-scroll .team-name-button{gap:6px;min-width:0;max-width:100%;}
+  #league-view .table-scroll .team-cell-name{font-size:11px;line-height:1.2;overflow-wrap:anywhere;}
+  #league-view .table-scroll .team-mobile-score{font-size:10px;white-space:normal;}
+  #league-view .table-scroll :is(th,td):last-child{min-width:155px;width:155px;padding-inline:5px;}
+  #league-view .table-scroll .form-dots{gap:3px;}
+  #league-view .table-scroll .form-dot{width:21px;height:21px;flex-basis:21px;}
+  #league-view .podium-list .podium-item{min-height:154px;}
+}
+@media(max-width:360px){
+  #league-view .table-scroll :is(th,td):first-child{width:48px;min-width:48px;max-width:48px;}
+  #league-view .table-scroll :is(th.sticky,td.sticky){left:48px;width:123px;min-width:123px;max-width:123px;padding-inline:5px;}
+  #league-view .table-scroll .team-name-button .crest{width:26px;height:26px;}
+  #league-view .table-scroll :is(th,td):last-child{min-width:116px;width:116px;padding-inline:3px;}
+  #league-view .table-scroll .form-dots{gap:2px;}
+  #league-view .table-scroll .form-dot{width:18px;height:18px;flex-basis:18px;font-size:8px;}
+}
+@media(prefers-reduced-motion:reduce){
+  #league-view .match-controls .round-btn,
+  #league-view .journey-pill,#league-view .match-status-chip{
+    animation:none!important;
+    transition:none!important;
+  }
+}

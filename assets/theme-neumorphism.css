@@ -1,0 +1,352 @@
+/* Apariencia aprobada: Neumorfismo. Se aplica al final. */
+/* ═════════════════════════════════════════════════════════════════════
+   BUNDESPUEBLA / SOFT FORM
+   Neumorfismo funcional · identidad vino · diseñado para móviles.
+   Mantiene los logos originales y la lógica de competición intactos.
+   ═════════════════════════════════════════════════════════════════════ */
+:root, html[data-theme="light"]{
+  --neo-base:#e9edf4;
+  --neo-highlight:#ffffff;
+  --neo-shade:#c7cdd8;
+  --neo-rise:7px 7px 17px rgba(169,179,197,.62), -7px -7px 17px rgba(255,255,255,.99);
+  --neo-rise-sm:4px 4px 10px rgba(169,179,197,.52), -4px -4px 10px rgba(255,255,255,.95);
+  --neo-deep:inset 4px 4px 9px rgba(173,184,201,.57), inset -4px -4px 9px rgba(255,255,255,.98);
+  --neo-deep-sm:inset 2px 2px 5px rgba(169,179,197,.62), inset -2px -2px 5px rgba(255,255,255,.96);
+  --bg:var(--neo-base);
+  --bg-alt:#eef1f7;
+  --surface:var(--neo-base);
+  --surface-hi:#f0f3f8;
+  --surface-hover:#e4e9f2;
+  --line:rgba(85,97,120,.12);
+  --line-bold:rgba(85,97,120,.2);
+  --shadow:var(--neo-rise);
+  --ink:#151c2a;
+  --ink-soft:#364356;
+  --muted:#606e80;
+}
+html[data-theme="dark"]{
+  --neo-base:#1a2230;
+  --neo-highlight:#2d3749;
+  --neo-shade:#0c1320;
+  --neo-rise:7px 7px 15px rgba(5,9,17,.72), -7px -7px 15px rgba(45,57,74,.48);
+  --neo-rise-sm:4px 4px 9px rgba(3,8,15,.69), -4px -4px 9px rgba(42,53,69,.57);
+  --neo-deep:inset 4px 4px 9px rgba(6,11,19,.78), inset -4px -4px 9px rgba(49,61,79,.58);
+  --neo-deep-sm:inset 2px 2px 5px rgba(6,11,19,.75), inset -2px -2px 5px rgba(49,61,79,.57);
+  --bg:var(--neo-base);
+  --bg-alt:#202a3a;
+  --surface:var(--neo-base);
+  --surface-hi:#232e3d;
+  --surface-hover:#293749;
+  --line:rgba(188,204,226,.105);
+  --line-bold:rgba(188,204,226,.2);
+  --shadow:var(--neo-rise);
+  --ink:#f1f5fb;
+  --ink-soft:#ced9e8;
+  --muted:#a7b7c9;
+}
+html,body,body.on-home,body.on-home .site-shell,.site-shell{
+  background:var(--neo-base);
+}
+/* Neumorfismo de doble sombra sin perder la cabecera vino. */
+.site-header,body.on-home .site-header,
+html[data-theme="dark"] .site-header,html[data-theme="dark"] body.on-home .site-header{
+  background:linear-gradient(115deg,#3f0016,#67001f 65%,#800934);
+  border-bottom:1px solid rgba(255,255,255,.19);
+  box-shadow:0 7px 19px rgba(60,0,24,.17),inset 0 1px 0 rgba(255,255,255,.13);
+}
+.site-header .search-trigger,.site-header .nav-actions .icon-btn{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:4px 4px 10px rgba(30,0,15,.38),-3px -3px 9px rgba(255,255,255,.10);
+  transition:box-shadow .22s ease,background-color .22s ease,transform .22s ease;
+}
+.site-header .search-trigger:active,.site-header .nav-actions .icon-btn:active{
+  box-shadow:inset 3px 3px 7px rgba(23,0,10,.44),inset -2px -2px 6px rgba(255,255,255,.13);
+  transform:scale(.985);
+}
+.site-header .brand-emblem{
+  box-shadow:3px 3px 9px rgba(26,0,10,.34),-3px -3px 9px rgba(255,255,255,.1);
+}
+/* INICIO: cuatro accesos, sin secciones decorativas adicionales. */
+body.on-home .competition-picker{max-width:1170px;}
+body.on-home .ap-intro{margin-bottom:36px;}
+body.on-home .ap-intro h1{letter-spacing:-.068em;}
+body.on-home .ap-card{
+  --card-light:rgba(255,255,255,.90);
+  --card-dark:rgba(149,160,180,.37);
+  border:1px solid rgba(255,255,255,.4);
+  background:var(--ap-ground);
+  box-shadow:9px 9px 20px var(--card-dark), -9px -9px 20px var(--card-light);
+  border-radius:29px;
+  transform:translateY(0);
+  transition:box-shadow .34s ease,transform .34s cubic-bezier(.2,.75,.2,1);
+}
+body.on-home .ap-card:nth-child(1){--ap-ground:#e6ebf3;--card-dark:rgba(154,164,181,.44);}
+body.on-home .ap-card:nth-child(2){--ap-ground:#f5eaf1;--card-dark:rgba(194,162,181,.34);}
+body.on-home .ap-card:nth-child(3){--ap-ground:#f7ebed;--card-dark:rgba(188,164,166,.36);}
+body.on-home .ap-card:nth-child(4){--ap-ground:#e4eef7;--card-dark:rgba(150,173,193,.37);}
+body.on-home .ap-card::before{opacity:0;background:transparent;}
+body.on-home .ap-card:is(:hover,:focus-visible){
+  transform:translateY(-3px);
+  box-shadow:11px 11px 23px var(--card-dark), -11px -11px 23px var(--card-light);
+}
+body.on-home .ap-card:active{
+  transform:scale(.989);
+  box-shadow:inset 4px 4px 10px var(--card-dark),inset -4px -4px 10px var(--card-light);
+}
+body.on-home .ap-category{
+  border:1px solid rgba(255,255,255,.38);
+  background:transparent;
+  color:var(--ap-accent);
+  box-shadow:var(--neo-rise-sm);
+  border-radius:999px;
+}
+body.on-home .ap-logo{
+  filter:none;
+  box-shadow:none;
+  transform:translateY(-50%);
+}
+body.on-home .ap-logo img{
+  filter:none;
+  transform:none;
+  image-rendering:auto;
+  object-fit:contain;
+  border:1px solid rgba(255,255,255,.78);
+  box-shadow:6px 6px 13px rgba(121,132,152,.22),-5px -5px 13px rgba(255,255,255,.86);
+  background:#fff;
+}
+body.on-home .ap-card:is(:hover,:focus-visible,:active) .ap-logo{transform:translateY(-50%);filter:none;}
+body.on-home .ap-arrow{
+  background:var(--ap-ground);border:1px solid rgba(255,255,255,.4);
+  box-shadow:var(--neo-rise-sm);color:var(--ap-accent);
+}
+body.on-home .ap-card:active .ap-arrow{box-shadow:var(--neo-deep-sm);background:var(--ap-ground);color:var(--ap-accent);}
+html[data-theme="dark"] body.on-home .ap-card{--card-light:rgba(255,255,255,.055);--card-dark:rgba(1,4,10,.62);border-color:rgba(255,255,255,.04);}
+html[data-theme="dark"] body.on-home .ap-card:nth-child(1){--ap-ground:#283241;}
+html[data-theme="dark"] body.on-home .ap-card:nth-child(2){--ap-ground:#402e3a;}
+html[data-theme="dark"] body.on-home .ap-card:nth-child(3){--ap-ground:#422c34;}
+html[data-theme="dark"] body.on-home .ap-card:nth-child(4){--ap-ground:#283c4d;}
+html[data-theme="dark"] body.on-home .ap-category,html[data-theme="dark"] body.on-home .ap-arrow{box-shadow:4px 4px 9px rgba(0,0,0,.38),-4px -4px 9px rgba(255,255,255,.045);}
+/* Dentro de la liga: relieve táctil en acciones, hundido en filtros. */
+#league-view .breadcrumbs button{min-height:44px;}
+#league-view .league-hero{
+  border:1px solid rgba(255,255,255,.18);
+  border-left:4px solid var(--league);
+  border-radius:23px;
+  box-shadow:var(--neo-rise);
+}
+#league-view .league-hero::after{opacity:.45;}
+#league-view .league-hero-actions .btn{
+  box-shadow:3px 3px 9px rgba(19,0,9,.27),-2px -2px 9px rgba(255,255,255,.1);
+}
+#league-view .league-hero-actions .btn:active{box-shadow:inset 2px 2px 5px rgba(35,0,13,.33),inset -2px -2px 5px rgba(255,255,255,.1);}
+.kpi-grid{gap:16px;padding:6px 5px 19px;margin-top:12px;}
+.kpi{
+  background:var(--neo-base);border:1px solid transparent;
+  border-top:3px solid var(--league);
+  border-radius:19px;box-shadow:var(--neo-rise-sm);
+}
+.kpi::after{opacity:.22;}
+.workbar{
+  position:relative;
+  background:var(--neo-base);border:1px solid transparent;
+  box-shadow:var(--neo-rise-sm);
+  border-radius:22px;
+}
+.field select,.field input,.search-field-wrap input{
+  background:var(--neo-base);border:1px solid transparent;
+  border-radius:13px;box-shadow:var(--neo-deep-sm);
+  color:var(--ink);
+}
+.field select:focus-visible,.field input:focus-visible,.search-field-wrap input:focus-visible{
+  outline:2px solid var(--wine);outline-offset:2px;
+}
+.field select{padding-right:25px;}
+#clear-search,.search-field-wrap button{
+  background:var(--neo-base);box-shadow:var(--neo-rise-sm);
+  border:1px solid transparent;border-radius:12px;color:var(--ink-soft);
+}
+#clear-search:active,.search-field-wrap button:active{box-shadow:var(--neo-deep-sm);}
+#league-view .tabs{
+  background:var(--neo-base);
+  box-shadow:var(--neo-deep);
+  border:1px solid rgba(255,255,255,.27);
+  border-radius:19px;
+  padding:6px;gap:5px;margin:20px 0 23px;
+  overflow:visible;
+}
+#league-view .tabs .tab{
+  min-height:52px;
+  border:0;border-radius:14px;
+  padding:10px 14px;
+  color:var(--ink-soft);
+  background:transparent;
+  box-shadow:none;
+}
+#league-view .tabs .tab.active{
+  color:var(--wine);
+  border:0;
+  background:var(--neo-base);
+  box-shadow:var(--neo-rise-sm);
+}
+#league-view .tabs .tab:hover:not(.active){background:rgba(255,255,255,.10);}
+#league-view .tabs .tab:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:14px;}
+.content-panel{
+  background:var(--neo-base);border:1px solid transparent;
+  box-shadow:var(--neo-rise-sm);border-radius:22px;
+}
+#league-view .round-btn,#league-view .journey-pill,#league-view .match-status-chip{
+  background:var(--neo-base);
+  border:1px solid transparent;
+  box-shadow:var(--neo-rise-sm);
+  color:var(--ink-soft);
+  border-radius:11px;
+}
+#league-view .round-btn:active,#league-view .journey-pill:active,#league-view .match-status-chip:active{
+  box-shadow:var(--neo-deep-sm);
+}
+#league-view .journey-pill.active,#league-view .match-status-chip.active{
+  background:var(--neo-base);color:var(--wine);box-shadow:var(--neo-deep-sm);
+  border:1px solid rgba(103,0,31,.14);
+}
+.journey-pills{border-bottom:1px solid var(--line);padding:6px 6px 17px;}
+#league-view .match-card{
+  background:var(--neo-base);border:1px solid transparent;
+  box-shadow:var(--neo-deep-sm);
+  border-radius:18px;
+}
+#league-view .match-card:hover{box-shadow:var(--neo-deep),0 3px 9px rgba(40,20,40,.05);transform:translateY(-1px);border-color:transparent;}
+#league-view .match-card .match-top{border-color:var(--line);}
+#league-view .match-card .status{background:var(--neo-base);border:1px solid var(--line);}
+#league-view .match-card .status.final{color:var(--success);}
+/* Tabla completa, desplazable, con las columnas congeladas. */
+#league-view .table-scroll{
+  background:var(--neo-base);border:1px solid var(--line);
+  box-shadow:var(--neo-deep-sm);border-radius:15px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+}
+#league-view .table-scroll table{border-collapse:separate;border-spacing:0;}
+#league-view .table-scroll th{background:var(--surface-hi);}
+#league-view .table-scroll td{background:var(--neo-base);}
+#league-view .table-scroll th.sticky,#league-view .table-scroll thead th:first-child{background:var(--surface-hi);}
+#league-view .table-scroll td.sticky,#league-view .table-scroll tbody td:first-child{background:var(--neo-base);}
+#league-view .table-scroll tbody tr:hover td{background:var(--surface-hover);}
+#league-view .table-scroll tbody tr.zone td:first-child{box-shadow:inset 4px 0 #159a65;}
+#league-view .table-scroll tbody tr.cutoff td:first-child{box-shadow:inset 4px 0 #159a65;}
+#league-view .table-scroll .pos{
+  background:var(--neo-base);
+  box-shadow:var(--neo-deep-sm);
+}
+#league-view .table-scroll .pos.top1,
+#league-view .table-scroll .pos.top2,
+#league-view .table-scroll .pos.top3{
+  position:relative;
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:
+    -4px -4px 8px rgba(255,255,255,.85),
+    4px 4px 10px rgba(171,184,201,.22),
+    inset 1px 1px 0 rgba(255,255,255,.42),
+    inset -1px -1px 0 rgba(0,0,0,.05);
+  background-clip:padding-box;
+}
+#league-view .table-scroll .pos.top1::after,
+#league-view .table-scroll .pos.top2::after,
+#league-view .table-scroll .pos.top3::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(180deg, rgba(255,255,255,.22), transparent 45%);
+  opacity:.8;
+}
+#league-view .table-scroll .pos.top1{
+  background:linear-gradient(145deg,#e7c55b,#d7ab37);
+  color:#2b220c;
+}
+#league-view .table-scroll .pos.top2{
+  background:linear-gradient(145deg,#d3dae5,#aeb9ca);
+  color:#253041;
+}
+#league-view .table-scroll .pos.top3{
+  background:linear-gradient(145deg,#cf9b81,#b98975);
+  color:#342019;
+}
+#league-view .table-scroll td.sticky .team-name-button{color:var(--ink);}
+/* Bota de Oro y ranking */
+#league-view .stats-podium,#league-view .stat-box{
+  background:var(--neo-base);border:1px solid transparent;
+  box-shadow:var(--neo-rise-sm);border-radius:22px;
+}
+#league-view .podium-item{
+  background:var(--neo-base);border:1px solid transparent;
+  box-shadow:var(--neo-deep-sm);border-radius:16px;
+}
+#league-view .podium-item:first-child{
+  background:var(--neo-base);border-left:3px solid var(--wine);
+}
+#league-view .podium-item:first-child small{color:var(--wine);}
+#league-view .ranking-row{border-color:var(--line);}
+#league-view .record-banner{
+  background:var(--neo-base);border:1px solid transparent;
+  border-left:4px solid var(--league);
+  box-shadow:var(--neo-rise-sm);
+}
+#league-view .bar-track{background:var(--neo-base);box-shadow:var(--neo-deep-sm);}
+/* Modales y notificaciones */
+.overlay{background:rgba(11,16,29,.57);}
+.dialog{
+  background:var(--neo-base);
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:14px 14px 35px rgba(8,13,26,.27),-6px -6px 20px rgba(255,255,255,.07);
+}
+.dialog-header{background:var(--neo-base);border-color:var(--line);}
+.finder-field,.finder-field input{background:var(--neo-base);}
+.finder-field{border-radius:13px;box-shadow:var(--neo-deep-sm);}
+.finder-result{background:var(--neo-base);border:1px solid var(--line);}
+.finder-result:active{box-shadow:var(--neo-deep-sm);}
+.team-numbers>div{background:var(--neo-base);box-shadow:var(--neo-deep-sm);border:1px solid transparent;}
+.footer{background:var(--neo-base);border-top:1px solid var(--line);}
+/* Mobile-first: evita sombras grandes y mantiene áreas táctiles. */
+@media(max-width:760px){
+  body.on-home .competition-picker{padding:35px 17px 62px;}
+  body.on-home .ap-grid{gap:20px;}
+  body.on-home .ap-card{
+    border-radius:23px;min-height:188px;
+    box-shadow:6px 6px 12px var(--card-dark),-6px -6px 12px var(--card-light);
+  }
+  body.on-home .ap-category{box-shadow:var(--neo-rise-sm);}
+  body.on-home .ap-arrow{min-width:44px;min-height:44px;width:44px;height:44px;}
+  #league-view .kpi-grid{padding:8px 9px 18px;gap:15px;}
+  #league-view .kpi{box-shadow:var(--neo-rise-sm);}
+  #league-view .workbar{position:relative;top:auto;z-index:auto;border-radius:18px;padding:15px;}
+  #league-view .tabs{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:6px;margin:17px 0 24px;}
+  #league-view .tabs .tab{min-height:70px;padding:9px 1px 10px;font-size:12px;flex-direction:column;gap:5px;}
+  #league-view .tabs .tab-emoji{font-size:23px;}
+  #league-view .content-panel{padding:14px;border-radius:19px;}
+  #league-view .round-btn{min-width:44px;min-height:44px;}
+  #league-view .journey-pills{margin-bottom:15px;}
+  #league-view .match-grid{gap:14px;}
+  #league-view .match-card{padding:16px;}
+  #league-view .table-scroll{max-width:100%;padding:0;margin:0;}
+  #league-view .table-scroll table{width:1040px;min-width:1040px;}
+  #league-view .table-scroll th.sticky,#league-view .table-scroll td.sticky{box-shadow:5px 0 10px -8px rgba(18,27,42,.48);}
+  #league-view .stats-podium{padding:15px 0 15px 15px;}
+  #league-view .podium-list{padding-right:12px;}
+  #league-view .dialog{max-height:92dvh;border-radius:22px 22px 0 0;}
+}
+@media(max-width:370px){
+  body.on-home .ap-card{padding:16px 18px;}
+  body.on-home .ap-name{font-size:clamp(23px,6.7vw,28px);}
+  #league-view .tabs .tab{font-size:11px;}
+  #league-view .table-scroll table{min-width:1040px;}
+}
+@media(prefers-reduced-motion:reduce){
+  body.on-home .ap-card,#league-view .match-card,
+  #league-view .tabs .tab,.site-header .search-trigger,.site-header .nav-actions .icon-btn{
+    transition:none!important;
+  }
+}
+
+
+.form-D{background:#64748b;}

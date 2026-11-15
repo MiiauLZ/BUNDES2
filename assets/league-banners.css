@@ -1,0 +1,131 @@
+/* Identidad cromática por liga — solo banner, sin tocar tablas ni partidos.
+   Se carga después de los estilos neumórficos para evitar reglas en conflicto. */
+#league-view[data-league="polos"]{
+  --hero-base:#111318;
+  --hero-mid:#252930;
+  --hero-finish:#343942;
+  --hero-edge:rgba(255,255,255,.27);
+}
+#league-view[data-league="bundesladies"]{
+  --hero-base:#99094c;
+  --hero-mid:#b40c61;
+  --hero-finish:#c61772;
+  --hero-edge:rgba(255,217,236,.55);
+}
+#league-view[data-league="bundespuebla"]{
+  --hero-base:#a0000b;
+  --hero-mid:#bf0c19;
+  --hero-finish:#d01828;
+  --hero-edge:rgba(255,219,218,.54);
+}
+#league-view[data-league="betos"]{
+  --hero-base:#064786;
+  --hero-mid:#075ba9;
+  --hero-finish:#086cb7;
+  --hero-edge:rgba(209,234,255,.55);
+}
+#league-view[data-league] .league-hero{
+  background:
+    radial-gradient(ellipse at 92% -32%,rgba(255,255,255,.13),transparent 57%),
+    linear-gradient(125deg,var(--hero-base),var(--hero-mid) 64%,var(--hero-finish));
+  border:1px solid rgba(255,255,255,.18);
+  border-left:4px solid var(--hero-edge);
+  color:#fff;
+  box-shadow:
+    0 13px 28px rgba(20,24,36,.17),
+    inset 0 1px 0 rgba(255,255,255,.2);
+  transition:background-color .25s ease,border-color .25s ease;
+}
+#league-view[data-league] .league-hero .league-name-wrap h2,
+#league-view[data-league] .league-hero .league-name-wrap p{
+  color:#fff;
+}
+#league-view[data-league] .league-hero .league-name-wrap .eyebrow{
+  color:rgba(255,255,255,.87);
+}
+#league-view[data-league] .league-hero-actions .btn{
+  color:#fff;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.42);
+  box-shadow:
+    2px 4px 9px rgba(0,0,0,.14),
+    inset 0 1px 0 rgba(255,255,255,.18);
+  transition:
+    transform .2s cubic-bezier(.2,.75,.3,1),
+    background-color .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  #league-view[data-league] .league-hero-actions .btn:not(:disabled):hover{
+    color:#fff;
+    background:rgba(255,255,255,.25);
+    border-color:rgba(255,255,255,.72);
+    transform:translateY(-2px);
+  }
+}
+#league-view[data-league] .league-hero-actions .btn:not(:disabled):active{
+  color:#fff;
+  background:rgba(255,255,255,.27);
+  transform:scale(.97);
+  box-shadow:inset 2px 2px 5px rgba(0,0,0,.2),inset -2px -2px 4px rgba(255,255,255,.1);
+}
+#league-view[data-league] .league-hero-actions .btn:focus-visible{
+  outline:3px solid #fff;
+  outline-offset:2px;
+}
+@media (max-width:760px){
+  #league-view[data-league] .league-hero{
+    box-shadow:0 8px 19px rgba(20,24,36,.14),inset 0 1px 0 rgba(255,255,255,.17);
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  #league-view[data-league] .league-hero-actions .btn{transition:none!important;}
+}
+
+/* Paleta interactiva del Centro de partidos.
+   data-league vive en el contenedor, pero solo las tarjetas del inicio
+   deben activar el manejador de apertura de liga. */
+#league-view[data-league="polos"] {--match-accent:#30353f;--match-accent-soft:rgba(48,53,63,.09);--match-accent-edge:rgba(48,53,63,.25);}
+#league-view[data-league="bundesladies"] {--match-accent:#b40c61;--match-accent-soft:rgba(180,12,97,.075);--match-accent-edge:rgba(180,12,97,.22);}
+#league-view[data-league="bundespuebla"] {--match-accent:#bf0c19;--match-accent-soft:rgba(191,12,25,.075);--match-accent-edge:rgba(191,12,25,.22);}
+#league-view[data-league="betos"] {--match-accent:#075ba9;--match-accent-soft:rgba(7,91,169,.08);--match-accent-edge:rgba(7,91,169,.25);}
+/* Una sombra para cada bandeja, no para cada botón. */
+#league-view[data-league] .match-controls,
+#league-view[data-league] .journey-pills,
+#league-view[data-league] .match-status-chips {
+  border-color:var(--match-accent-edge);
+}
+#league-view[data-league] .match-controls .round-btn {
+  color:var(--match-accent);
+  background:var(--match-accent-soft);
+}
+#league-view[data-league] .journey-pill:not(.active),
+#league-view[data-league] .match-status-chip:not(.is-current) {
+  color:var(--match-accent);
+}
+#league-view[data-league] .match-controls .round-btn:not(:disabled):is(:hover,:active),
+#league-view[data-league] .journey-pill:not(.active):is(:hover,:focus-visible,:active),
+#league-view[data-league] .match-status-chip:not(.is-current):is(:hover,:focus-visible,:active){
+  background:var(--match-accent-soft);
+  color:var(--match-accent);
+}
+#league-view[data-league] .journey-pill.active,
+#league-view[data-league] .match-status-chip.is-current {
+  background:var(--match-accent);
+  color:#fff;
+  border-color:transparent;
+}
+#league-view[data-league] .round-btn:focus-visible,
+#league-view[data-league] .journey-pill:focus-visible,
+#league-view[data-league] .match-status-chip:focus-visible {
+  outline-color:var(--match-accent);
+}
+#league-view[data-league] .match-controls .round-btn:disabled {
+  opacity:.37;
+}
+@media(prefers-reduced-motion:reduce){
+  #league-view[data-league] .round-btn,
+  #league-view[data-league] .journey-pill,
+  #league-view[data-league] .match-status-chip {transition:none!important;animation:none!important;}
+}
